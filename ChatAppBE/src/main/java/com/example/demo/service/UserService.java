@@ -7,4 +7,7 @@ public interface UserService {
 
     User findUserByUsername(String username);
 
+    User findUserById(Long userId);
+
+    User currentLoginUser();
 }

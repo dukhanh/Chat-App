@@ -6,9 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface GroupRepository extends JpaRepository<GroupChat, Long> {
     @Query(value = "SELECT g FROM GroupChat g JOIN g.members m JOIN m.user u WHERE u.id=?1")
     List<GroupChat> getAllByUser(Long userId);
+
+    Optional<GroupChat> findByName(String groupName);
 }
